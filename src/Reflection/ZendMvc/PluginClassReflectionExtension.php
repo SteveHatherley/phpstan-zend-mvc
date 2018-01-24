@@ -77,7 +77,7 @@ class PluginClassReflectionExtension implements
         $methodIsInvokable = is_callable($this->pluginManager->get($methodName));
 
         if ($methodIsInvokable) {
-            $methodReflection = $this->broker->getClass(get_class($plugin))->getMethod('__invoke');
+            $methodReflection = $this->broker->getClass(get_class($plugin))->getNativeMethod('__invoke');
             $returnType = $methodReflection->getReturnType();
 
             return new InvokableMethodReflection(
